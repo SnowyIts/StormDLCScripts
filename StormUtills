@@ -1,0 +1,54 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "⚡ StormDLC | Utills Script", HidePremium = true, SaveConfig = true, ConfigFolder = "StormDLCutills"})
+
+local TabPlayer = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+TabPlayer:AddSlider({
+	Name = "WalkSpeed",
+	Min = 1,
+	Max = 1000,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "SpeedSliderNum",
+	Callback = function(Value)
+		local SpeedValue = SpeedSliderNum
+	end    
+})
+
+TabPlayer:AddToggle({
+	Name = "WalkSpeed Change",
+	Default = false,
+	Callback = function(Value)
+		local Players = game:GetService("Players")
+		local player = Players.LocalPlayer
+		while true do
+          player.Character.Humanoid.WalkSpeed = SpeedValue
+		end
+	end    
+})
+
+--
+local TabTroll = Window:MakeTab({
+	Name = "Troll",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = true
+})
+
+--
+local TabOther = Window:MakeTab({
+	Name = "Other",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+TabOther:AddButton({
+	Name = "Destroy Window",
+	Callback = function()
+      	OrionLib:Destroy()
+  	end    
+})
